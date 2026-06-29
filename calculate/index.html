@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рассчитать стоимость — Территория Плюс</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* ========== КАЛЬКУЛЯТОР — СТИЛИ ПОД ОСНОВНОЙ САЙТ ========== */
+        :root {
+            --bg-dark: #0d0d0d;
+            --gold: #d4af37;
+            --gold-dark: #b8962e;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --text-light: #f0f0f0;
+            --text-muted: #888888;
+            --border-gold: rgba(212, 175, 55, 0.2);
+            --panel-bg: rgba(20, 20, 20, 0.75);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            font-weight: 300;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--text-light);
+            background: var(--bg-dark);
+            background-image: 
+                url('../img/img_10.JPG'),
+                radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        /* Затемнение поверх фона */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 0;
+        }
+
+        .calculator-card {
+            position: relative;
+            z-index: 1;
+            background: var(--panel-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-gold);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 480px;
+            padding: 32px 28px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(212, 175, 55, 0.03);
+        }
+
+        /* Уголки как на основном сайте */
+        .calculator-card::before,
+        .calculator-card::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-color: var(--gold);
+            border-style: solid;
+        }
+        .calculator-card::before {
+            top: -1px;
+            left: -1px;
+            border-width: 2px 0 0 2px;
+        }
+        .calculator-card::after {
+            bottom: -1px;
+            right: -1px;
+            border-width: 0 2px 2px 0;
+        }
+
+        /* ===== ХЕДЕР ===== */
+        .calc-header {
+            text-align: center;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-gold);
+        }
+
+        .calc-header .logo-brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 2px;
+            font-family: 'Kreadon', 'Georgia', serif;
+            font-weight: 300;
+            letter-spacing: 2px;
+            font-size: 22px;
+        }
+
+        .calc-header .logo-part1 {
+            font-family: 'Kreadon', 'Georgia', serif;
+            font-size: 22px;
+            font-weight: 300;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .calc-header .logo-slash {
+            font-family: 'Plants', 'Georgia', serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--gold);
+            margin: 0 2px;
+            line-height: 1;
+        }
+
+        .calc-header .logo-part2 {
+            font-family: 'Kreadon', 'Georgia', serif;
+            font-size: 14px;
+            font-weight: 300;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .calc-header .calc-subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== ФОРМА ===== */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 12px 14px;
+            color: #ffffff;
+            font-size: 16px;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            font-weight: 300;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.08);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        input[type="number"]::placeholder {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .helper-text {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.2);
+            margin-top: 4px;
+        }
+
+        /* ===== ЧЕКБОКСЫ ===== */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 8px 0;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            height: 20px;
+            width: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-gold);
+            border-radius: 4px;
+            margin-right: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-container input:checked ~ .checkmark {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        .checkmark:after {
+            content: "";
+            display: none;
+            width: 4px;
+            height: 10px;
+            border: solid var(--gold);
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+        }
+
+        .checkbox-container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .checkbox-label {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--text-light);
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== КНОПКИ ===== */
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            border-radius: 8px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+        }
+
+        .btn-calc {
+            background: var(--gold);
+            color: #0d0d0d;
+            border-color: var(--gold);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .btn-calc:hover {
+            background: var(--gold-dark);
+            border-color: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
+        }
+
+        .btn-clear {
+            background: transparent;
+            color: var(--text-muted);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-clear:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        /* ===== РЕЗУЛЬТАТ ===== */
+        .result-box {
+            background: rgba(212, 175, 55, 0.04);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .result-title {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .result-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+        }
+
+        .result-stats {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.2);
+            margin-top: 6px;
+        }
+
+        /* ===== КНОПКА НАЗАД ===== */
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--text-muted);
+            font-size: 13px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        /* ===== АДАПТИВНОСТЬ ===== */
+        @media (max-width: 480px) {
+            .calculator-card {
+                padding: 24px 18px;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .form-row .form-group {
+                margin-bottom: 16px;
+            }
+            .form-row .form-group:last-child {
+                margin-bottom: 0;
+            }
+            .btn-row {
+                flex-direction: column;
+            }
+            .result-value {
+                font-size: 26px;
+            }
+            .calc-header .logo-brand {
+                font-size: 18px;
+            }
+            .calc-header .logo-part1 {
+                font-size: 18px;
+            }
+            .calc-header .logo-slash {
+                font-size: 22px;
+            }
+            .calc-header .logo-part2 {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-card">
+        <!-- Хедер с логотипом -->
+        <div class="calc-header">
+            <div class="logo-brand">
+                <span class="logo-part1">ТЕРРИТОРИЯ</span>
+                <span class="logo-slash">/</span>
+                <span class="logo-part2">плюс</span>
+            </div>
+            <div class="calc-subtitle">Калькулятор стоимости работ</div>
+        </div>
+
+        <!-- Форма -->
+        <div class="form-group">
+            <label>Стоимость 1 м² (руб.)</label>
+            <input type="number" id="price" placeholder="0.00" min="0" step="0.01" value="10">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Длина (м)</label>
+                <input type="number" id="length" placeholder="0" min="0">
+            </div>
+            <div class="form-group">
+                <label>Ширина (м)</label>
+                <input type="number" id="width" placeholder="0" min="0">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Площадь (сотки)</label>
+            <input type="number" id="sotki" placeholder="0" min="0" step="0.1">
+            <div class="helper-text">Заполняется, если известна площадь в сотках</div>
+        </div>
+
+        <label class="checkbox-container">
+            <input type="checkbox" id="complex">
+            <span class="checkmark"></span>
+            <span class="checkbox-label">Сложный ландшафт (+25%)</span>
+        </label>
+
+        <label class="checkbox-container">
+            <input type="checkbox" id="highGrass">
+            <span class="checkmark"></span>
+            <span class="checkbox-label">Высота травы более 100 см (+75%)</span>
+        </label>
+
+        <div class="form-group" style="margin-top: 8px;">
+            <label>Скидка (%)</label>
+            <input type="number" id="discount" placeholder="0" min="0" max="100">
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-clear" onclick="clearAll()">Очистить</button>
+            <button class="btn btn-calc" onclick="calculate()">Рассчитать</button>
+        </div>
+
+        <div class="result-box">
+            <div class="result-title">Итоговая сумма</div>
+            <div class="result-value" id="total-sum">0.00 ₽</div>
+            <div class="result-stats" id="area-stats">Общая площадь: 0 кв.м.</div>
+        </div>
+
+        <a href="../index.html" class="back-link">Вернуться на главную</a>
+    </div>
+
+    <script>
+        const priceInput = document.getElementById('price');
+        const lengthInput = document.getElementById('length');
+        const widthInput = document.getElementById('width');
+        const sotkiInput = document.getElementById('sotki');
+        const complexCheck = document.getElementById('complex');
+        const highGrassCheck = document.getElementById('highGrass');
+        const discountInput = document.getElementById('discount');
+        const totalSumEl = document.getElementById('total-sum');
+        const areaStatsEl = document.getElementById('area-stats');
+
+        function calculate() {
+            const price = parseFloat(priceInput.value) || 0;
+            const length = parseFloat(lengthInput.value) || 0;
+            const width = parseFloat(widthInput.value) || 0;
+            const sotki = parseFloat(sotkiInput.value) || 0;
+            const discount = parseFloat(discountInput.value) || 0;
+
+            let calculatedSqM = 0;
+
+            if (length > 0 && width > 0) {
+                calculatedSqM = length * width;
+                if (calculatedSqM > 0) {
+                    sotkiInput.value = (calculatedSqM / 100).toFixed(2);
+                }
+            } else if (sotki > 0) {
+                calculatedSqM = sotki * 100;
+                if (calculatedSqM > 0) {
+                    const side = Math.sqrt(calculatedSqM);
+                    if (!lengthInput.value || lengthInput.value === '0' || lengthInput.value === '') {
+                        lengthInput.value = side.toFixed(2);
+                    }
+                    if (!widthInput.value || widthInput.value === '0' || widthInput.value === '') {
+                        widthInput.value = side.toFixed(2);
+                    }
+                }
+            }
+
+            if (price <= 0 || calculatedSqM <= 0) {
+                totalSumEl.innerText = '0.00 ₽';
+                areaStatsEl.innerText = 'Общая площадь: 0 кв.м.';
+                return;
+            }
+
+            const baseSum = calculatedSqM * price;
+            let complexBonus = complexCheck.checked ? (baseSum * 0.25) : 0;
+            let highGrassBonus = highGrassCheck.checked ? (baseSum * 0.75) : 0;
+            let total = baseSum + complexBonus + highGrassBonus;
+
+            if (discount > 0 && discount <= 100) {
+                total *= (1 - discount / 100);
+            }
+
+            totalSumEl.innerText = `${total.toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₽`;
+            areaStatsEl.innerText = `Общая площадь: ${calculatedSqM.toFixed(1)} кв.м. (${(calculatedSqM / 100).toFixed(2)} сот.)`;
+        }
+
+        function clearAll() {
+            priceInput.value = '10';
+            lengthInput.value = '';
+            widthInput.value = '';
+            sotkiInput.value = '';
+            discountInput.value = '';
+            complexCheck.checked = false;
+            highGrassCheck.checked = false;
+            totalSumEl.innerText = '0.00 ₽';
+            areaStatsEl.innerText = 'Общая площадь: 0 кв.м.';
+        }
+
+        // Автоматический расчёт при изменении полей
+        [priceInput, lengthInput, widthInput, sotkiInput, complexCheck, highGrassCheck, discountInput].forEach(el => {
+            el.addEventListener('input', calculate);
+            el.addEventListener('change', calculate);
+        });
+
+        // Автоматический расчёт при загрузке
+        document.addEventListener('DOMContentLoaded', calculate);
+    </script>
+
+</body>
+</html>

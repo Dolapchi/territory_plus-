@@ -1,0 +1,10 @@
+{
+  "short_name": "Origami",
+  "name": "Origami | Groundskeepers",
+  "icons": [],
+  "start_url": "./index.html",
+  "background_color": "#020804",
+  "theme_color": "#00ff66",
+  "display": "standalone",
+  "orientation": "portrait"
+}

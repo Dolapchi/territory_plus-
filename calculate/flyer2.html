@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Флаер А5 — Покос травы</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif;
+        }
+
+        /* ----- Флаер А5 ----- */
+        .flyer {
+            width: 148mm;
+            height: 210mm;
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            padding: 10mm 9mm 6mm 9mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        /* Лёгкие декоративные пятна (почти не расходуют краску) */
+        .accent-block {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 160px;
+            height: 160px;
+            background: #f0f7ee;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .accent-block-bottom {
+            position: absolute;
+            bottom: 40px;
+            left: -60px;
+            width: 140px;
+            height: 140px;
+            background: #f0f7ee;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* ----- Верх: бренд + скидка ----- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        .brand {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a3b1a;
+            letter-spacing: 0.5px;
+        }
+        .brand span {
+            font-weight: 300;
+            color: #4a7c4a;
+        }
+
+        .badge {
+            background: #e63946;
+            color: #fff;
+            font-weight: 800;
+            font-size: 20px;
+            padding: 4px 16px;
+            border-radius: 40px;
+            box-shadow: 0 4px 10px rgba(230, 57, 70, 0.15);
+            transform: rotate(1deg);
+        }
+        .badge small {
+            font-size: 12px;
+            font-weight: 400;
+            display: block;
+            margin-top: -4px;
+        }
+
+        /* ----- Главный заголовок ----- */
+        .main-title {
+            margin: 6px 0 8px 0;
+        }
+        .main-title h1 {
+            font-size: 34px;
+            font-weight: 800;
+            color: #1a3b1a;
+            line-height: 1.1;
+        }
+        .main-title h1 .highlight {
+            background: #f4a261;
+            padding: 0 8px;
+            display: inline-block;
+            color: #1a3b1a;
+        }
+        .main-title .sub {
+            font-size: 16px;
+            font-weight: 400;
+            color: #2d4a2d;
+            margin-top: 4px;
+        }
+
+        /* ----- Преимущества ----- */
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin: 6px 0 8px 0;
+        }
+        .feature-item {
+            font-size: 13px;
+            color: #1e3a1e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .feature-item .icon {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: #d4e8d4;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 18px;
+            font-weight: 700;
+            color: #1a3b1a;
+            flex-shrink: 0;
+        }
+
+        /* ----- Блок со скидкой ----- */
+        .cta-block {
+            background: #f8faf6;
+            border-left: 5px solid #e63946;
+            padding: 10px 14px;
+            border-radius: 4px;
+            margin: 6px 0 8px 0;
+        }
+        .cta-block .big-discount {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1a3b1a;
+        }
+        .cta-block .big-discount span {
+            color: #e63946;
+            background: #fff5f5;
+            padding: 0 10px;
+            border-radius: 30px;
+        }
+        .cta-block .desc {
+            font-size: 13px;
+            color: #2d4a2d;
+            margin-top: 2px;
+        }
+
+        /* ----- Нижняя часть: телефон + линия отрыва ----- */
+        .footer {
+            margin-top: auto;
+            border-top: 1px solid #e0ebe0;
+            padding-top: 10px;
+        }
+        .phone-block {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .phone {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a3b1a;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+        .phone small {
+            font-weight: 400;
+            font-size: 12px;
+            color: #4a7c4a;
+        }
+        .action-text {
+            font-size: 12px;
+            color: #4a7c4a;
+            font-weight: 500;
+            border: 1px solid #c0d6c0;
+            padding: 4px 14px;
+            border-radius: 30px;
+            background: #fafffa;
+        }
+
+        /* ----- Линия отрыва ----- */
+        .perforation {
+            text-align: center;
+            font-size: 9px;
+            color: #bbb;
+            letter-spacing: 2px;
+            border-top: 2px dashed #ccc;
+            padding-top: 6px;
+            margin: 6px 0 4px 0;
+        }
+        .perforation span {
+            background: #fff;
+            padding: 0 8px;
+        }
+
+        /* ----- 4 отрывных блока с телефоном ----- */
+        .coupons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+        .coupon-item {
+            border: 1px solid #e0ebe0;
+            border-radius: 4px;
+            padding: 6px 4px;
+            text-align: center;
+            background: #fafffa;
+        }
+        .coupon-item .coupon-label {
+            font-size: 8px;
+            text-transform: uppercase;
+            color: #aaa;
+            letter-spacing: 0.5px;
+        }
+        .coupon-item .coupon-phone {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a3b1a;
+            letter-spacing: 0.3px;
+        }
+        .coupon-item .coupon-hint {
+            font-size: 8px;
+            color: #bbb;
+            margin-top: 2px;
+        }
+
+        /* ----- Печать ----- */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+                min-height: auto;
+            }
+            .flyer {
+                box-shadow: none;
+                border: none;
+                width: 100%;
+                height: 100%;
+                padding: 8mm 7mm 5mm 7mm;
+                border-radius: 0;
+            }
+            .accent-block,
+            .accent-block-bottom {
+                opacity: 0.6;
+            }
+        }
+
+        /* ----- Адаптивность на экране ----- */
+        @media screen and (max-width: 600px) {
+            .flyer {
+                width: 100%;
+                height: auto;
+                min-height: 100vh;
+                border-radius: 0;
+                padding: 20px;
+            }
+            .main-title h1 {
+                font-size: 26px;
+            }
+            .badge {
+                font-size: 16px;
+                padding: 2px 12px;
+            }
+            .phone {
+                font-size: 18px;
+            }
+            .cta-block .big-discount {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+
+        <div class="accent-block"></div>
+        <div class="accent-block-bottom"></div>
+
+        <div class="content">
+
+            <!-- Шапка: бренд + скидка -->
+            <div class="header">
+                <div class="brand">
+                    Территория<br><span>Плюс</span>
+                </div>
+                <div class="badge">
+                    −20% <small>на первое обращение</small>
+                </div>
+            </div>
+
+            <!-- Заголовок -->
+            <div class="main-title">
+                <h1>
+                    Покос травы<br>
+                    <span class="highlight">быстро и аккуратно</span>
+                </h1>
+                <div class="sub">Опытные специалисты со своей техникой</div>
+            </div>
+
+            <!-- Преимущества -->
+            <div class="features">
+                <div class="feature-item">
+                    <span class="icon">✓</span> Без задержек и переносов
+                </div>
+                <div class="feature-item">
+                    <span class="icon">✓</span> Своя техника — выезд в день звонка
+                </div>
+                <div class="feature-item">
+                    <span class="icon">✓</span> Работаем в КМВ и области
+                </div>
+            </div>
+
+            <!-- Блок со скидкой -->
+            <div class="cta-block">
+                <div class="big-discount">
+                    <span>Скидка 20%</span> в июле
+                </div>
+                <div class="desc">
+                    На первое обращение при заказе от 1 сотки
+                </div>
+            </div>
+
+            <!-- Телефон -->
+            <div class="footer">
+                <div class="phone-block">
+                    <a href="tel:+79001234567" class="phone">
+                        +7 900 123-45-67
+                        <small>Звоните сейчас!</small>
+                    </a>
+                    <span class="action-text">Бесплатный выезд</span>
+                </div>
+
+                <!-- Линия отрыва -->
+                <div class="perforation">
+                    <span>— — — — — — — ОТОРВИТЕ — — — — — — —</span>
+                </div>
+
+                <!-- 4 отрывных блока -->
+                <div class="coupons-grid">
+                    <div class="coupon-item">
+                        <div class="coupon-label">Скидка 20%</div>
+                        <div class="coupon-phone">+7 900 123-45-67</div>
+                        <div class="coupon-hint">Покос травы</div>
+                    </div>
+                    <div class="coupon-item">
+                        <div class="coupon-label">Скидка 20%</div>
+                        <div class="coupon-phone">+7 900 123-45-67</div>
+                        <div class="coupon-hint">Покос травы</div>
+                    </div>
+                    <div class="coupon-item">
+                        <div class="coupon-label">Скидка 20%</div>
+                        <div class="coupon-phone">+7 900 123-45-67</div>
+                        <div class="coupon-hint">Покос травы</div>
+                    </div>
+                    <div class="coupon-item">
+                        <div class="coupon-label">Скидка 20%</div>
+                        <div class="coupon-phone">+7 900 123-45-67</div>
+                        <div class="coupon-hint">Покос травы</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
