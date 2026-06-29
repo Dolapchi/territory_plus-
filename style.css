@@ -453,17 +453,17 @@ body {
 /* Фоновые изображения слайдов */
 .slide:nth-child(1) {
     background-image: linear-gradient(135deg, rgba(17, 17, 17, 0.75) 0%, rgba(17, 17, 17, 0.4) 100%),
-        url('img/grass.PNG');
+        url('img/grass.png');
 }
 
 .slide:nth-child(2) {
     background-image: linear-gradient(135deg, rgba(17, 17, 17, 0.75) 0%, rgba(17, 17, 17, 0.4) 100%),
-        url('img/wood.PNG');
+        url('img/wood.png');
 }
 
 .slide:nth-child(3) {
     background-image: linear-gradient(135deg, rgba(17, 17, 17, 0.75) 0%, rgba(17, 17, 17, 0.4) 100%),
-        url('img/flowers.PNG');
+        url('img/flowers.png');
 }
 
 .slider-btn {
