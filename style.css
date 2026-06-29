@@ -1,0 +1,1887 @@
+/* ============================================
+   1. ПОДКЛЮЧЕНИЕ ШРИФТОВ
+   ============================================ */
+@font-face {
+    font-family: 'Kreadon';
+    src: url('fonts/Kreadon.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plants';
+    src: url('fonts/Plants.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ============================================
+   РЕКЛАМНЫЙ БАННЕР
+   ============================================ */
+.promo-banner {
+    background: #e63946;
+    color: #ffffff;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    box-shadow: 0 2px 15px rgba(230, 57, 70, 0.3);
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+}
+
+.promo-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.promo-icon {
+    font-size: 22px;
+    animation: pulse-icon 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-icon {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.promo-text {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+
+.promo-text strong {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.promo-text-mobile {
+    display: none;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.promo-text-mobile strong {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.promo-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 6px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.promo-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.promo-close {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0 4px;
+    line-height: 1;
+}
+
+.promo-close:hover {
+    color: #ffffff;
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 768px) {
+    .promo-banner {
+        padding: 8px 0;
+    }
+
+    .promo-text {
+        display: none;
+    }
+
+    .promo-text-mobile {
+        display: inline;
+    }
+
+    .promo-banner-content {
+        gap: 10px;
+    }
+
+    .promo-icon {
+        font-size: 18px;
+    }
+
+    .promo-btn {
+        font-size: 12px;
+        padding: 4px 14px;
+    }
+
+    .promo-close {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .promo-banner-content {
+        gap: 6px;
+    }
+
+    .promo-text-mobile {
+        font-size: 12px;
+    }
+
+    .promo-text-mobile strong {
+        font-size: 15px;
+    }
+
+    .promo-btn {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+
+    .promo-icon {
+        font-size: 15px;
+    }
+}
+
+/* ============================================
+   2. ОБЩИЕ СТИЛИ
+   ============================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    color: #2d2d2d;
+    background: #fff;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Декоративная линия */
+.decor-line {
+    width: 60px;
+    height: 3px;
+    background-color: #778a6e;
+    margin: 15px 0 25px 0;
+}
+
+.decor-line.center {
+    margin: 15px auto 45px auto;
+}
+
+/* ============================================
+   3. ШАПКА
+   ============================================ */
+.header {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 18px 0;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Логотип (слева) */
+.logo {
+    flex: 0 0 auto;
+    min-width: 180px;
+}
+
+.logo-brand {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+    font-family: 'Kreadon', 'Georgia', serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.logo-part1 {
+    font-family: 'Kreadon', 'Georgia', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #2d2d2d;
+    letter-spacing: 2px;
+}
+
+.logo-slash {
+    font-family: 'Plants', 'Georgia', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #2d2d2d;
+    margin: 0 2px;
+    line-height: 1;
+}
+
+.logo-part2 {
+    font-family: 'Kreadon', 'Georgia', serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #2d2d2d;
+    letter-spacing: 1px;
+}
+
+/* Меню (по центру) */
+.nav {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+}
+
+.nav a {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #2d2d2d;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #778a6e;
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.nav a:hover {
+    color: #778a6e;
+}
+
+/* Телефон (справа) */
+.header-phone {
+    text-align: right;
+    flex: 0 0 auto;
+    min-width: 180px;
+}
+
+.header-phone a {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #2d2d2d;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+}
+
+.header-phone a:hover {
+    color: #778a6e;
+}
+
+.header-phone span {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    color: #999;
+    display: block;
+    margin-top: 2px;
+}
+
+/* ============================================
+   4. СЛАЙДЕР
+   ============================================ */
+.slider-container {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    background: #111;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-content {
+    max-width: 800px;
+    padding: 20px;
+    color: white;
+}
+
+/* Бренд "Территория / плюс" */
+.brand-title {
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.brand-part1 {
+    font-family: 'Kreadon', 'Georgia', serif;
+    font-size: 50px;
+    font-weight: 300;
+}
+
+.brand-slash {
+    font-family: 'Plants', 'Georgia', serif;
+    font-size: 80px;
+    font-weight: 400;
+    margin: 0 6px;
+}
+
+.brand-part2 {
+    font-family: 'Kreadon', 'Georgia', serif;
+    font-size: 35px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.slide-content h1 {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 42px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-down {
+    display: inline-block;
+    animation: bounce 2s infinite;
+    color: white;
+}
+
+.scroll-down svg {
+    width: 40px;
+    height: 40px;
+    stroke: white;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Фоновые изображения слайдов */
+.slide:nth-child(1) {
+    background-image: linear-gradient(135deg, rgba(17, 17, 17, 0.75) 0%, rgba(17, 17, 17, 0.4) 100%),
+        url('img/grass.PNG');
+}
+
+.slide:nth-child(2) {
+    background-image: linear-gradient(135deg, rgba(17, 17, 17, 0.75) 0%, rgba(17, 17, 17, 0.4) 100%),
+        url('img/wood.PNG');
+}
+
+.slide:nth-child(3) {
+    background-image: linear-gradient(135deg, rgba(17, 17, 17, 0.75) 0%, rgba(17, 17, 17, 0.4) 100%),
+        url('img/flowers.PNG');
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 50%;
+    transition: all 0.3s;
+    z-index: 10;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+}
+
+.slider-btn:hover {
+    background: #778a6e;
+}
+
+.prev {
+    left: 30px;
+}
+
+.next {
+    right: 30px;
+}
+
+/* ============================================
+   ПЛАВАЮЩАЯ КНОПКА — ЭФФЕКТ КРУГОВ НА ВОДЕ
+   ============================================ */
+.floating-wrapper {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ===== ЗОЛОТАЯ ТЕЛЕФОННАЯ ТРУБКА С ЭФФЕКТОМ КРУГОВ ===== */
+.floating-phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #d4af37, #b8962e);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: visible;
+}
+
+/* ===== ЭФФЕКТ КРУГОВ НА ВОДЕ ДЛЯ ТРУБКИ ===== */
+.floating-phone::before,
+.floating-phone::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    width: 100%;
+    height: 100%;
+    animation: ripple-phone 2.5s ease-out infinite;
+    pointer-events: none;
+}
+
+.floating-phone::after {
+    animation-delay: 0.8s;
+}
+
+@keyframes ripple-phone {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+        border-width: 2px;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+        border-width: 1px;
+    }
+}
+
+.floating-phone:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+    background: linear-gradient(145deg, #e0c04a, #c9a832);
+}
+
+.floating-phone svg {
+    width: 28px;
+    height: 28px;
+    stroke: #ffffff;
+    fill: none;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== КНОПКА "РАССЧИТАТЬ СТОИМОСТЬ" С ЭФФЕКТОМ КРУГОВ ===== */
+.floating-calc {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 8px;
+    background: #1a1a1a;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: visible;
+}
+
+/* ===== ЭФФЕКТ КРУГОВ НА ВОДЕ ДЛЯ КНОПКИ ===== */
+.floating-calc::before,
+.floating-calc::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    width: 100%;
+    height: 100%;
+    animation: ripple-calc 3s ease-out infinite;
+    pointer-events: none;
+}
+
+.floating-calc::after {
+    animation-delay: 1s;
+}
+
+@keyframes ripple-calc {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+        border-width: 2px;
+        border-radius: 8px;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 0;
+        border-width: 1px;
+    }
+}
+
+.floating-calc:hover {
+    transform: translateY(-2px);
+    border-color: #d4af37;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
+}
+
+.floating-calc-icon {
+    font-family: 'Plants', 'Georgia', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #d4af37;
+    line-height: 1;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.floating-calc:hover .floating-calc-icon {
+    color: #f0d060;
+}
+
+.floating-calc-text {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.floating-calc:hover .floating-calc-text {
+    color: #d4af37;
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 768px) {
+    .floating-wrapper {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+    }
+
+    .floating-phone {
+        width: 50px;
+        height: 50px;
+    }
+
+    .floating-phone svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .floating-calc {
+        padding: 12px 18px;
+        font-size: 13px;
+        border-radius: 6px;
+    }
+
+    .floating-calc-icon {
+        font-size: 16px;
+    }
+
+    .floating-calc-text {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-wrapper {
+        bottom: 16px;
+        right: 16px;
+        gap: 8px;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .floating-phone {
+        width: 44px;
+        height: 44px;
+    }
+
+    .floating-phone svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .floating-calc {
+        padding: 10px 14px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+
+    .floating-calc-icon {
+        font-size: 14px;
+    }
+
+    .floating-calc-text {
+        font-size: 12px;
+    }
+}
+
+/* ============================================
+   6. О КОМПАНИИ
+   ============================================ */
+.about-section {
+    padding: 80px 0;
+    background: #fcfcfc;
+    text-align: center;
+}
+
+.about-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-wrapper h2 {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 36px;
+    color: #2d2d2d;
+}
+
+.about-wrapper .decor-line.center {
+    margin: 15px auto 30px auto;
+}
+
+.about-text-center {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* ============================================
+   ПРЕИМУЩЕСТВА — КРУГЛЫЕ КАРТОЧКИ
+   ============================================ */
+.advantages-section {
+    padding: 80px 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.advantages-section .advantages-overlay {
+    position: relative;
+    z-index: 2;
+}
+
+.advantages-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.advantages-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.advantages-header {
+    text-align: center;
+    margin-bottom: 40px; /* ← уменьшил отступ */
+}
+
+.advantages-subtitle {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    display: block;
+    font-size: 14px;
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.advantages-header h2 {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 36px;
+    color: #ffffff;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* ← 5 кругов в ряд */
+    gap: 20px;
+    text-align: center;
+}
+
+.advantage-item {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 16px 10px;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.advantage-item:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-color: #d4af37;
+}
+
+.advantage-number {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 28px;
+    color: #d4af37;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.advantage-label {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    color: #2d2d2d;
+    line-height: 1.2;
+    word-break: break-word;
+    max-width: 90%;
+}
+
+.advantage-sub-label {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    color: #555;
+    margin-top: 2px;
+    word-break: break-word;
+    max-width: 90%;
+}
+
+/* ============================================
+   УСЛУГИ — КРУГЛЫЕ КАРТОЧКИ
+   ============================================ */
+.services-section {
+    padding: 80px 0 100px 0;
+    background: #fff;
+}
+
+.section-title {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    text-align: center;
+    font-size: 36px;
+    color: #2d2d2d;
+    margin-bottom: 10px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-card-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    min-height: 220px;
+}
+
+.service-card-image:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    border-color: #d4af37;
+}
+
+.service-card-image .card-img-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 18px 14px 18px 14px;
+    width: 100%;
+    min-height: 48%;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    transition: background 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-card-image:hover .card-img-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.service-card-image .card-img-overlay h3 {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 6px;
+    line-height: 1.2;
+    word-wrap: break-word;
+    hyphens: auto;
+    max-width: 92%;
+}
+
+.service-card-image .card-img-overlay p {
+    display: none;
+}
+
+.service-card-image .card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 8px;
+    width: 100%;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.service-card-image .card-price {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 15px;
+    word-wrap: break-word;
+}
+
+.service-card-image .card-price .ruble-sign {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: none;
+    margin-left: 1px;
+}
+
+.service-card-image .card-link {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 400;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.service-card-image .card-link:hover {
+    color: #f0d060;
+}
+
+.service-card-image .card-link .arrow {
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* ... остальные стили для карточек ... */
+
+/* ============================================
+   9. КОНТАКТЫ
+   ============================================ */
+.contacts-section {
+    padding: 100px 0;
+    background: #2d2d2d;
+    color: white;
+    text-align: center;
+}
+
+.contacts-section h2 {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.contacts-section p {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    color: #bbb;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+.contacts-phone-block .btn {
+    background: transparent;
+    border: 2px solid #778a6e;
+    box-shadow: none;
+}
+
+.contacts-phone-block .btn:hover {
+    background: #778a6e;
+}
+
+/* Кнопки общие */
+.btn {
+    display: inline-block;
+    background-color: #778a6e;
+    color: white;
+    padding: 16px 36px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    box-shadow: 0 4px 15px rgba(119, 138, 110, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+    background-color: #5f6d56;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(119, 138, 110, 0.5);
+}
+
+/* ============================================
+   ЭТАПЫ РАБОТ — ПРОСТО ЦИФРЫ В КРУГАХ
+   ============================================ */
+.stages-section {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.stages-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.stages-subtitle {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    display: block;
+    font-size: 14px;
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.stages-header h2 {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 36px;
+    color: #2d2d2d;
+}
+
+.stages-description {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #767676;
+    margin-top: 8px;
+}
+
+/* ===== ТАЙМЛАЙН ===== */
+.stages-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Вертикальная линия */
+.stages-timeline::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: linear-gradient(to bottom, #d4af37, #d4af37 50%, rgba(212, 175, 55, 0.2));
+    z-index: 0;
+}
+
+/* ===== ЭЛЕМЕНТ ЭТАПА ===== */
+.stage-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.stage-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Чередование */
+.stage-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.stage-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* ===== ЦИФРА В КРУГЕ С ЗАЛИВКОЙ ===== */
+.stage-number-wrap {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background: #d4af37;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+.stage-number {
+    font-family: 'Kreadon', 'Georgia', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ===== КОНТЕНТ ===== */
+.stage-content {
+    flex: 1;
+    background: #ffffff;
+    padding: 20px 24px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    max-width: 400px;
+}
+
+.stage-item:nth-child(odd) .stage-content {
+    text-align: left;
+}
+
+.stage-item:nth-child(even) .stage-content {
+    text-align: right;
+}
+
+.stage-content:hover {
+    border-color: #d4af37;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.stage-content h3 {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #2d2d2d;
+    margin-bottom: 6px;
+}
+
+.stage-content p {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #767676;
+    line-height: 1.6;
+}
+
+/* ===== СТРЕЛКА ===== */
+.stage-arrow {
+    font-size: 24px;
+    color: #d4af37;
+    opacity: 0.5;
+    flex-shrink: 0;
+    padding: 0 10px;
+    transition: opacity 0.3s ease;
+    font-weight: 300;
+}
+
+.stage-item:hover .stage-arrow {
+    opacity: 1;
+}
+
+.stage-item:last-child .stage-arrow {
+    display: none;
+}
+
+/* ===== КОНТЕНТ ===== */
+.stage-content {
+    flex: 1;
+    background: #ffffff;
+    padding: 20px 24px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    max-width: 400px;
+}
+
+.stage-item:nth-child(odd) .stage-content {
+    text-align: left;
+}
+
+.stage-item:nth-child(even) .stage-content {
+    text-align: right;
+}
+
+.stage-content:hover {
+    border-color: #d4af37;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.stage-content h3 {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #2d2d2d;
+    margin-bottom: 6px;
+}
+
+.stage-content p {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #767676;
+    line-height: 1.6;
+}
+
+/* ===== СТРЕЛКА ===== */
+.stage-arrow {
+    font-size: 24px;
+    color: #d4af37;
+    opacity: 0.5;
+    flex-shrink: 0;
+    padding: 0 10px;
+    transition: opacity 0.3s ease;
+    font-weight: 300;
+}
+
+.stage-item:hover .stage-arrow {
+    opacity: 1;
+}
+
+.stage-item:last-child .stage-arrow {
+    display: none;
+}
+
+/* ===== КОНТЕНТ ===== */
+.stage-content {
+    flex: 1;
+    background: #ffffff;
+    padding: 20px 24px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    max-width: 400px;
+}
+
+.stage-item:nth-child(odd) .stage-content {
+    text-align: left;
+}
+
+.stage-item:nth-child(even) .stage-content {
+    text-align: right;
+}
+
+.stage-content:hover {
+    border-color: #d4af37;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.stage-content h3 {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #2d2d2d;
+    margin-bottom: 6px;
+}
+
+.stage-content p {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #767676;
+    line-height: 1.6;
+}
+
+/* ===== СТРЕЛКА ВНИЗ ===== */
+.stage-arrow {
+    font-size: 24px;
+    color: #d4af37;
+    opacity: 0.5;
+    flex-shrink: 0;
+    padding: 0 10px;
+    transition: opacity 0.3s ease;
+    font-weight: 300;
+}
+
+.stage-item:hover .stage-arrow {
+    opacity: 1;
+}
+
+/* Убираем стрелку у последнего элемента */
+.stage-item:last-child .stage-arrow {
+    display: none;
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 768px) {
+    .stages-section {
+        padding: 60px 0;
+    }
+
+    .stages-header h2 {
+        font-size: 28px;
+    }
+
+    .stages-timeline::before {
+        left: 30px;
+    }
+
+    .stage-item {
+        flex-direction: row !important;
+        gap: 16px;
+        padding: 16px 0;
+    }
+
+    .stage-number-wrap {
+        width: 60px;
+        height: 60px;
+        flex-shrink: 0;
+    }
+
+    .stage-circle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .stage-circle circle {
+        cx: 30;
+        cy: 30;
+        r: 24;
+        stroke-dasharray: 151;
+        stroke-dashoffset: 151;
+    }
+
+    .stage-number {
+        font-size: 20px;
+    }
+
+    .stage-content {
+        max-width: 100%;
+        padding: 16px 18px;
+    }
+
+    .stage-content h3 {
+        font-size: 16px;
+    }
+
+    .stage-content p {
+        font-size: 13px;
+    }
+
+    .stage-arrow {
+        font-size: 18px;
+        padding: 0 6px;
+    }
+
+    .stage-item:nth-child(odd) .stage-content {
+        text-align: left;
+    }
+
+    .stage-item:nth-child(even) .stage-content {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .stage-number-wrap {
+        width: 48px;
+        height: 48px;
+    }
+
+    .stage-circle {
+        width: 48px;
+        height: 48px;
+    }
+
+    .stage-circle circle {
+        cx: 24;
+        cy: 24;
+        r: 18;
+        stroke-dasharray: 113;
+        stroke-dashoffset: 113;
+    }
+
+    .stage-number {
+        font-size: 16px;
+    }
+
+    .stage-content {
+        padding: 12px 14px;
+    }
+
+    .stage-content h3 {
+        font-size: 14px;
+    }
+
+    .stage-content p {
+        font-size: 12px;
+    }
+
+    .stage-arrow {
+        font-size: 14px;
+    }
+}
+
+/* ============================================
+   ПОДВАЛ (FOOTER)
+   ============================================ */
+.footer {
+    background: #1a1a1a;
+    padding: 60px 0 30px 0;
+    color: #ffffff;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ===== Логотип в подвале ===== */
+.footer-brand .footer-logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+    font-family: 'Kreadon', 'Georgia', serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.footer-logo-part1 {
+    font-family: 'Kreadon', 'Georgia', serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.footer-logo-slash {
+    font-family: 'Plants', 'Georgia', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #d4af37;
+    margin: 0 2px;
+    line-height: 1;
+}
+
+.footer-logo-part2 {
+    font-family: 'Kreadon', 'Georgia', serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.footer-desc {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #cccccc;
+    line-height: 1.7;
+    max-width: 320px;
+}
+
+/* ===== Контакты ===== */
+.footer-col h4 {
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #d4af37;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+}
+
+.footer-col a,
+.footer-col address {
+    display: block;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.8;
+    font-style: normal;
+}
+
+.footer-col a:hover {
+    color: #d4af37;
+}
+
+.footer-phone {
+    font-weight: 400 !important;
+    font-size: 18px !important;
+}
+
+.footer-email {
+    color: #aaaaaa !important;
+}
+
+.footer-email:hover {
+    color: #d4af37 !important;
+}
+
+.footer-address {
+    color: #aaaaaa !important;
+    margin-top: 4px;
+}
+
+/* ===== Социальные сети ===== */
+.footer-social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-social-link:hover {
+    color: #d4af37;
+}
+
+.footer-social-link img {
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+.footer-social-link:hover img {
+    filter: brightness(0) invert(1) sepia(1) saturate(10) hue-rotate(10deg);
+}
+
+/* ===== Нижняя линия ===== */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: #888888;
+}
+
+.footer-made {
+    color: #666666;
+}
+
+/* ============================================
+   АДАПТИВНОСТЬ (всё в одном месте)
+   ============================================ */
+
+/* Планшеты и маленькие ноутбуки */
+@media (max-width: 992px) {
+    /* Шапка */
+    .nav { display: none; }
+    .slide-content h1 { font-size: 32px; }
+    .about-section,
+    .services-section,
+    .contacts-section,
+    .advantages-section {
+        padding: 60px 0;
+    }
+    .brand-part1 { font-size: 35px; }
+    .brand-slash { font-size: 55px; }
+    .brand-part2 { font-size: 24px; }
+
+    /* Преимущества */
+    .advantages-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    /* Услуги */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Подвал */
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+    .footer-desc {
+        max-width: 100%;
+    }
+}
+
+/* Телефоны (горизонтальная ориентация) */
+@media (max-width: 768px) {
+    /* Шапка */
+    .header-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .logo {
+        min-width: auto;
+    }
+    .nav {
+        flex: none;
+        width: 100%;
+        justify-content: center;
+        gap: 14px;
+    }
+    .nav a {
+        font-size: 12px;
+    }
+    .header-phone {
+        min-width: auto;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Слайдер */
+    .slide-content h1 {
+        font-size: 28px;
+    }
+    .brand-part1 { font-size: 28px; }
+    .brand-slash { font-size: 40px; }
+    .brand-part2 { font-size: 20px; }
+
+    /* Преимущества */
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .advantage-number {
+        font-size: 22px;
+    }
+    .advantage-label {
+        font-size: 9px;
+    }
+    .advantage-sub-label {
+        font-size: 8px;
+    }
+
+    /* Услуги */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .service-card-image {
+        min-height: 160px;
+    }
+    .service-card-image .card-img-overlay h3 {
+        font-size: 13px;
+    }
+
+    /* Блоки */
+    .about-section,
+    .services-section,
+    .contacts-section,
+    .advantages-section {
+        padding: 60px 0;
+    }
+
+    /* Этапы */
+    .stages-section {
+        padding: 60px 0;
+    }
+    .stages-header h2 {
+        font-size: 28px;
+    }
+    .stage-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 25px 20px;
+        gap: 15px;
+    }
+    .stage-number {
+        font-size: 36px;
+        min-width: auto;
+    }
+    .stage-content h3 {
+        font-size: 18px;
+    }
+    .stage-content p {
+        font-size: 14px;
+    }
+
+    /* Плавающая кнопка */
+    .floating-wrapper {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+    }
+    .floating-phone {
+        width: 50px;
+        height: 50px;
+    }
+    .floating-phone svg {
+        width: 22px;
+        height: 22px;
+    }
+    .floating-calc {
+        padding: 12px 18px;
+        font-size: 13px;
+        border-radius: 6px;
+    }
+    .floating-calc-icon {
+        font-size: 16px;
+    }
+    .floating-calc-text {
+        font-size: 13px;
+    }
+}
+
+/* Маленькие телефоны */
+@media (max-width: 600px) {
+    /* Подвал */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    .footer-social-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Шапка */
+    .brand-part1 { font-size: 22px; }
+    .brand-slash { font-size: 32px; }
+    .brand-part2 { font-size: 16px; }
+
+    /* Слайдер */
+    .slide-content h1 {
+        font-size: 22px;
+    }
+
+    /* Преимущества */
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .advantage-number {
+        font-size: 18px;
+    }
+    .advantage-label {
+        font-size: 8px;
+    }
+    .advantage-sub-label {
+        font-size: 7px;
+    }
+
+    /* Услуги */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .service-card-image {
+        min-height: 200px;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    /* Этапы */
+    .stage-item {
+        padding: 20px 16px;
+    }
+    .stage-number {
+        font-size: 28px;
+    }
+    .stage-content h3 {
+        font-size: 16px;
+    }
+
+    /* Плавающая кнопка */
+    .floating-wrapper {
+        bottom: 16px;
+        right: 16px;
+        gap: 8px;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .floating-phone {
+        width: 44px;
+        height: 44px;
+    }
+    .floating-phone svg {
+        width: 18px;
+        height: 18px;
+    }
+    .floating-calc {
+        padding: 10px 14px;
+        font-size: 12px;
+        border-radius: 6px;
+    }
+    .floating-calc-icon {
+        font-size: 14px;
+    }
+    .floating-calc-text {
+        font-size: 12px;
+    }

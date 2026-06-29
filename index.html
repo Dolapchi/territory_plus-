@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Территория Плюс — Ландшафтные работы на КМВ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ========== РЕКЛАМНЫЙ БАННЕР ========== -->
+<div class="promo-banner">
+    <div class="container promo-banner-content">
+        <span class="promo-icon">🔥</span>
+        <span class="promo-text">
+            <strong>−20%</strong> скидка в июле на первый заказ
+        </span>
+        <span class="promo-text-mobile">
+            <strong>−20%</strong> в июле на первый заказ
+        </span>
+        <a href="#contacts" class="promo-btn">Подробнее</a>
+        <button class="promo-close" onclick="this.parentElement.parentElement.style.display='none'">✕</button>
+    </div>
+</div>
+    <!-- ========== ПЛАВАЮЩАЯ КНОПКА ========== -->
+<div class="floating-wrapper">
+    <a href="tel:+79602389760" class="floating-phone">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+    </a>
+    <a href="calculate/index.html" class="floating-calc">
+        <span class="floating-calc-icon">/</span>
+        <span class="floating-calc-text">Рассчитать стоимость</span>
+    </a>
+</div>
+
+<!-- ============ ШАПКА ============ -->
+<header class="header">
+    <div class="container header-flex">
+        <div class="logo">
+            <span class="logo-brand">
+                <span class="logo-part1">ТЕРРИТОРИЯ</span>
+                <span class="logo-slash">/</span>
+                <span class="logo-part2">плюс</span>
+            </span>
+        </div>
+        <nav class="nav">
+            <a href="#hero">Главная</a>
+            <a href="#services">Услуги</a>
+            <a href="#about">О компании</a>
+            <a href="#advantages">Преимущества</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+        <div class="header-phone">
+            <a href="tel:+79602389760">+7 960 238-97-60</a>
+            <span>Кавказские Минеральные Воды</span>
+        </div>
+    </div>
+</header>
+
+    <!-- ============ СЛАЙДЕР ============ -->
+    <section id="hero" class="slider-container">
+        <div class="slides">
+            <div class="slide active">
+                <div class="slide-content">
+                    <div class="brand-title">
+                        <span class="brand-part1">ТЕРРИТОРИЯ</span>
+                        <span class="brand-slash">/</span>
+                        <span class="brand-part2">плюс:</span>
+                    </div>
+                    <h1>Профессиональный покос травы и спил деревьев</h1>
+                    <a href="#contacts" class="scroll-down">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M12 5v14M5 12l7 7 7-7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="brand-title">
+                        <span class="brand-part1">ТЕРРИТОРИЯ</span>
+                        <span class="brand-slash">/</span>
+                        <span class="brand-part2">плюс:</span>
+                    </div>
+                    <h1>Расчистка участков любой сложности под ключ</h1>
+                    <a href="#services" class="scroll-down">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M12 5v14M5 12l7 7 7-7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="brand-title">
+                        <span class="brand-part1">ТЕРРИТОРИЯ</span>
+                        <span class="brand-slash">/</span>
+                        <span class="brand-part2">плюс:</span>
+                    </div>
+                    <h1>Гербицидная обработка и уничтожение бурьяна</h1>
+                    <a href="#contacts" class="scroll-down">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M12 5v14M5 12l7 7 7-7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+    </section>
+
+    <!-- ============ О КОМПАНИИ ============ -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-wrapper">
+                <h2>О компании «Территория Плюс»</h2>
+                <div class="decor-line center"></div>
+                <p class="about-text-center">
+                    Мы осуществляем полный спектр ландшафтных и сопутствующих работ на территории Кавказских Минеральных Вод. Специализируемся на профессиональном покосе травы, комплексном спиле деревьев любой сложности, а также полной расчистке и подготовке участков к строительству или благоустройству.
+                </p>
+            </div>
+        </div>
+    </section>
+
+   <!-- ============ ПРЕИМУЩЕСТВА ============ -->
+<section id="advantages" class="advantages-section" style="background-image: url('img/birdhouse.JPG');">
+    <div class="container">
+        <div class="advantages-overlay">
+            <div class="advantages-header">
+                <span class="advantages-subtitle">Почему нас выбирают?</span>
+                <h2>Наши преимущества</h2>
+                <div class="decor-line center"></div>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-number" data-target="25">0</div>
+                    <div class="advantage-label">лет работаем с ландшафтом</div>
+                    <div class="advantage-sub-label">с 1996 года</div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-number" data-target="280">0</div>
+                    <div class="advantage-label">довольных заказчиков</div>
+                    <div class="advantage-sub-label">по всей России</div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-number" data-target="1000">0</div>
+                    <div class="advantage-label">га территорий озеленено</div>
+                    <div class="advantage-sub-label">сотни проектов реализовано</div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-number" data-target="100000">0</div>
+                    <div class="advantage-label">растений и деревьев высажено</div>
+                    <div class="advantage-sub-label">здоровый и ухоженный сад</div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-number" data-target="2">0</div>
+                    <div class="advantage-label">года гарантии на всё</div>
+                    <div class="advantage-sub-label">при нашем уходе</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ УСЛУГИ ============ -->
+<section id="services" class="services-section">
+    <div class="container">
+        <h2 class="section-title">Услуги компании</h2>
+        <div class="decor-line center"></div>
+        <div class="services-grid">
+
+            <!-- Карточка 1 -->
+            <div class="service-card-image" style="background-image: url('img/img_1.PNG');">
+                <div class="card-img-overlay">
+                    <h3>Покос травы и бурьяна</h3>
+                    <p>Быстрое и качественное скашивание сорной растительности на любых площадях.</p>
+                    <div class="card-footer">
+                        <span class="card-price">от 500 ₽</span>
+                        <a href="#contacts" class="card-link">Заказать →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="service-card-image" style="background-image: url('img/img_2.PNG');">
+                <div class="card-img-overlay">
+                    <h3>Химическое уничтожение растительности</h3>
+                    <p>Профессиональная гербицидная обработка для долгосрочной защиты от сорняков.</p>
+                    <div class="card-footer">
+                        <span class="card-price">от 1 500 ₽</span>
+                        <a href="#contacts" class="card-link">Заказать →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="service-card-image" style="background-image: url('img/img_3.PNG');">
+                <div class="card-img-overlay">
+                    <h3>Спил и удаление деревьев</h3>
+                    <p>Безопасный спил аварийных деревьев методами арбористики в стесненных условиях.</p>
+                    <div class="card-footer">
+                        <span class="card-price">от 3 000 ₽</span>
+                        <a href="#contacts" class="card-link">Заказать →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 4 -->
+            <div class="service-card-image" style="background-image: url('img/img_4.PNG');">
+                <div class="card-img-overlay">
+                    <h3>Корчевание пней и расчистка участков</h3>
+                    <p>Механизированное и ручное удаление пней, комплексная подготовка участков.</p>
+                    <div class="card-footer">
+                        <span class="card-price">от 4 000 ₽</span>
+                        <a href="#contacts" class="card-link">Заказать →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 5 -->
+            <div class="service-card-image" style="background-image: url('img/img_5.PNG');">
+                <div class="card-img-overlay">
+                    <h3>Обрезка и фигурная стрижка кустарников</h3>
+                    <p>Формовочная и санитарная обрезка кустарников, живых изгородей.</p>
+                    <div class="card-footer">
+                        <span class="card-price">от 1 000 ₽</span>
+                        <a href="#contacts" class="card-link">Заказать →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 6 -->
+            <div class="service-card-image" style="background-image: url('img/img_6.PNG');">
+                <div class="card-img-overlay">
+                    <h3>Вывоз порубочных остатков и утилизация</h3>
+                    <p>Сбор, погрузка, оперативный вывоз и законная утилизация древесных отходов.</p>
+                    <div class="card-footer">
+                        <span class="card-price">от 2 500 ₽</span>
+                        <a href="#contacts" class="card-link">Заказать →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============ ЭТАПЫ РАБОТ ============ -->
+<section id="stages" class="stages-section">
+    <div class="container">
+        <div class="stages-header">
+            <span class="stages-subtitle">Как мы работаем</span>
+            <h2>Этапы работ</h2>
+            <div class="decor-line center"></div>
+            <p class="stages-description">От заявки до благоустроенной территории</p>
+        </div>
+
+        <div class="stages-timeline">
+            <!-- Этап 1 -->
+            <div class="stage-item">
+                <div class="stage-number-wrap">
+                    <div class="stage-number">1</div>
+                   
+                </div>
+                <div class="stage-content">
+                    <h3>Заявка и выезд на объект</h3>
+                    <p>Вы оставляете заявку, мы созваниваемся, обсуждаем задачи и договариваемся о встрече. Наш специалист выезжает на объект, чтобы оценить объём работ и учесть все особенности участка.</p>
+                </div>
+                <div class="stage-arrow">↓</div>
+            </div>
+
+            <!-- Этап 2 -->
+            <div class="stage-item">
+                <div class="stage-number-wrap">
+                    <div class="stage-number">2</div>
+                    
+                </div>
+                <div class="stage-content">
+                    <h3>Расчёт стоимости и заключение договора</h3>
+                    <p>После осмотра мы готовим детальный расчёт и согласовываем с вами смету. Подписываем договор, в котором прописаны все этапы, сроки и гарантии.</p>
+                </div>
+                <div class="stage-arrow">↓</div>
+            </div>
+
+            <!-- Этап 3 -->
+            <div class="stage-item">
+                <div class="stage-number-wrap">
+                    <div class="stage-number">3</div>
+                    
+                </div>
+                <div class="stage-content">
+                    <h3>Подготовка участка</h3>
+                    <p>Очистка территории от мусора, разметка зон, подготовка почвы, удаление сорняков и бурьяна. На этом этапе мы создаём «чистый лист» для дальнейших работ.</p>
+                </div>
+                <div class="stage-arrow">↓</div>
+            </div>
+
+            <!-- Этап 4 -->
+            <div class="stage-item">
+                <div class="stage-number-wrap">
+                    <div class="stage-number">4</div>
+                    
+                </div>
+                <div class="stage-content">
+                    <h3>Основные работы</h3>
+                    <p>Покос травы, спил и удаление деревьев, корчевание пней, химическая обработка, обрезка кустарников — все работы выполняются профессионально и в срок.</p>
+                </div>
+                <div class="stage-arrow">↓</div>
+            </div>
+
+            <!-- Этап 5 -->
+            <div class="stage-item">
+                <div class="stage-number-wrap">
+                    <div class="stage-number">5</div>
+                    
+                </div>
+                <div class="stage-content">
+                    <h3>Вывоз и утилизация</h3>
+                    <p>Собираем и вывозим все порубочные остатки, траву и мусор. Утилизируем отходы в соответствии с экологическими нормами.</p>
+                </div>
+                <div class="stage-arrow">↓</div>
+            </div>
+
+            <!-- Этап 6 -->
+            <div class="stage-item">
+                <div class="stage-number-wrap">
+                    <div class="stage-number">6</div>
+                    
+                </div>
+                <div class="stage-content">
+                    <h3>Сдача объекта и гарантия</h3>
+                    <p>Совместный осмотр выполненной работы, фиксация результата. Даём гарантию на все выполненные работы при условии нашего последующего ухода.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+   
+    <!-- ============ ПОДВАЛ ============ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            
+            <!-- Колонка 1: Логотип и описание -->
+            <div class="footer-col footer-brand">
+                <div class="footer-logo">
+                    <span class="footer-logo-part1">ТЕРРИТОРИЯ</span>
+                    <span class="footer-logo-slash">/</span>
+                    <span class="footer-logo-part2">плюс</span>
+                </div>
+                <p class="footer-desc">Ландшафтные работы на Кавказских Минеральных Водах. Профессиональный покос, спил деревьев, расчистка участков.</p>
+            </div>
+
+            <!-- Колонка 2: Контакты -->
+            <div class="footer-col footer-contacts">
+                <h4>Контакты</h4>
+                <a href="tel:+79602389760" class="footer-phone">+7 960 238-97-60</a>
+                <a href="mailto:info@territoryplus.ru" class="footer-email">info@territoryplus.ru</a>
+                <address class="footer-address">г. Кисловодск, ул. Седлогорская, д. 93</address>
+            </div>
+
+            <!-- Колонка 3: Мессенджеры -->
+            <div class="footer-col footer-social">
+                <h4>Мы в мессенджерах</h4>
+                <div class="footer-social-links">
+                    <a href="https://t.me/territoryplus" target="_blank" class="footer-social-link">
+                        <img src="img/telegram-icon.svg" alt="Telegram" width="36" height="36">
+                        <span>Telegram</span>
+                    </a>
+                    <a href="https://wa.me/79602389760" target="_blank" class="footer-social-link">
+                        <img src="img/whatsapp-icon.svg" alt="WhatsApp" width="36" height="36">
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Нижняя линия с копирайтом -->
+        <div class="footer-bottom">
+            <span>© 2026 Территория Плюс. Все права защищены.</span>
+            <span class="footer-made">Сделано с ❤️ на КМВ</span>
+        </div>
+    </div>
+</footer>
+
+<!-- ============ СКРИПТЫ ============ -->
+<script>
+    // =============================================
+    // 1. СЛАЙДЕР
+    // =============================================
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    function moveSlide(step) {
+        let newIndex = currentSlide + step;
+        if (newIndex < 0) newIndex = slides.length - 1;
+        if (newIndex >= slides.length) newIndex = 0;
+        currentSlide = newIndex;
+        showSlide(currentSlide);
+    }
+
+    // Автопрокрутка каждые 6 секунд
+    setInterval(() => {
+        moveSlide(1);
+    }, 6000);
+
+    // =============================================
+    // 2. АНИМАЦИЯ ЦИФР В БЛОКЕ "ПРЕИМУЩЕСТВА"
+    // =============================================
+    document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.querySelectorAll('.advantage-number');
+
+        function animateCounter(counter) {
+            const target = parseInt(counter.dataset.target);
+            if (isNaN(target) || target === 0) return;
+
+            const duration = 2000; // 2 секунды
+            const step = Math.max(1, Math.floor(target / 60));
+            let current = 0;
+
+            const interval = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(interval);
+                }
+                counter.textContent = current + (target > 100 ? '+' : '');
+            }, 30);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+    });
+
+    // =============================================
+    // 3. ПЛАВНОЕ ПОЯВЛЕНИЕ ЭТАПОВ РАБОТ
+    // =============================================
+    document.addEventListener('DOMContentLoaded', function() {
+        const stageItems = document.querySelectorAll('.stage-item');
+
+        const stageObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const index = Array.from(stageItems).indexOf(entry.target);
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, 300 * index);
+                    stageObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        stageItems.forEach(item => stageObserver.observe(item));
+    });
+</script>
